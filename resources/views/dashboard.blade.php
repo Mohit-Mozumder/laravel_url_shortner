@@ -9,7 +9,10 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">URL Shortener</a>
+        <a class="navbar-brand" href="{{ route('dashboard') }}">
+            <img src="{{ asset('logo.png') }}" alt="Logo" width="200" height="45" class="d-inline-block align-top">
+          
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -32,7 +35,7 @@
         @csrf
         <div class="mb-3">
             <label for="long_url" class="form-label">Enter Long URL</label>
-            <input type="url" name="long_url" class="form-control" id="long_url" placeholder="Enter long URL here" required>
+            <input type="url" name="long_url" class="form-control" id="long_url" placeholder="Paste your URL here" required>
         </div>
         <button type="submit" class="btn btn-primary">Shorten URL</button>
     </form>

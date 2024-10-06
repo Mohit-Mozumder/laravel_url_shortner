@@ -9,8 +9,9 @@
 <body>
 <div class="container vh-100 d-flex justify-content-center align-items-center">
     <div class="card w-50">
-        <div class="card-body">
-            <h3 class="card-title text-center mb-4">url Shortner Register</h3>
+        <div class="card-body text-center">
+            <img src="{{ asset('logo.png') }}" alt="Logo" class="mb-4" style="width: 150px;">
+            
             @if($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -20,19 +21,20 @@
                     </ul>
                 </div>
             @endif
+            
             <form action="{{ route('register') }}" method="POST">
                 @csrf
-                <div class="mb-3">
+                <div class="mb-3 text-start">
                     <label for="name" class="form-label">Name</label>
-                    <input type="text" name="name" class="form-control" id="name" required>
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Enter your name" required>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 text-start">
                     <label for="email" class="form-label">Email address</label>
-                    <input type="email" name="email" class="form-control" id="email" required>
+                    <input type="email" name="email" class="form-control" id="email" placeholder="Enter your email" required>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 text-start">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" name="password" class="form-control" id="password" required>
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Enter your password" required>
                 </div>
                 <div class="d-grid">
                     <button type="submit" class="btn btn-success">Register</button>
