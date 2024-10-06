@@ -5,8 +5,17 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UrlController;
 
 
-Route::get('/login', function () { return view('login'); })->name('login');
-Route::get('/register', function () { return view('register'); })->name('register');
+Route::get('/', function () {
+    return redirect()->route('login');
+})->name('home');
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+
+Route::get('/register', function () {
+    return view('register');
+})->name('register');
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
