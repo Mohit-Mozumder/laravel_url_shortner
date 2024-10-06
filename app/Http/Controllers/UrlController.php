@@ -22,7 +22,6 @@ class UrlController extends Controller
 
     $longUrl = $request->long_url;
 
-    // Automatically prepend 'https://' if missing
     if (!preg_match("~^(?:f|ht)tps?://~i", $longUrl)) {
         $longUrl = "https://" . $longUrl;
     }
@@ -37,9 +36,6 @@ class UrlController extends Controller
 
     return redirect()->route('dashboard')->with('success', 'URL shortened successfully.');
 }
-
-    
-    
 
     public function show($shortUrl)
     {

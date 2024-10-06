@@ -11,14 +11,14 @@ Route::get('/', function () {
 
 Route::get('/login', function () {
     if (auth()->check()) {
-        return redirect()->route('dashboard'); // Redirect to dashboard if already logged in
+        return redirect()->route('dashboard'); 
     }
     return view('login');
 })->name('login');
 
 Route::get('/register', function () {
     if (auth()->check()) {
-        return redirect()->route('dashboard'); // Redirect to dashboard if already logged in
+        return redirect()->route('dashboard'); 
     }
     return view('register');
 })->name('register');
