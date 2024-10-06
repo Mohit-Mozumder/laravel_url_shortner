@@ -10,7 +10,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ route('dashboard') }}">
-            <img src="{{ asset('logo.png') }}" alt="Logo" width="200" height="45" class="d-inline-block align-top">
+            <img src="{{ asset('logo.png') }}" alt="Logo" width="150" class="d-inline-block align-top">
           
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,8 +35,11 @@
         @csrf
         <div class="mb-3">
             <label for="long_url" class="form-label">Enter Long URL</label>
-            <input type="url" name="long_url" class="form-control" id="long_url" placeholder="Paste your URL here" required>
-        </div>
+            <input type="text" name="long_url" class="form-control" id="long_url" placeholder="e.g., https://example.com" required>
+            @error('long_url')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
+        </div>        
         <button type="submit" class="btn btn-primary">Shorten URL</button>
     </form>
 

@@ -15,21 +15,31 @@ class UrlController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'long_url' => 'required|url',
-        ]);
+{
+    $request->validate([
+        'long_url' => 'required|url',
+    ]);
 
-        $shortUrl = Str::random(6);
+    $longUrl = $request->long_url;
 
-        Url::create([
-            'user_id' => auth()->id(),
-            'long_url' => $request->long_url,
-            'short_url' => $shortUrl,
-        ]);
-
-        return redirect()->route('dashboard');
+    // Automatically prepend 'https://' if missing
+    if (!preg_match("~^(?:f|ht)tps?://~i", $longUrl)) {
+        $longUrl = "https://" . $longUrl;
     }
+
+    $shortUrl = Str::random(6);
+
+    Url::create([
+        'user_id' => auth()->id(),
+        'long_url' => $longUrl,
+        'short_url' => $shortUrl,
+    ]);
+
+    return redirect()->route('dashboard')->with('success', 'URL shortened successfully.');
+}
+
+    
+    
 
     public function show($shortUrl)
     {

@@ -36,6 +36,11 @@
                     <label for="password" class="form-label">Password</label>
                     <input type="password" name="password" class="form-control" id="password" placeholder="Enter your password" required>
                 </div>
+                <!-- Confirm Password Field -->
+                <div class="mb-3 text-start">
+                    <label for="confirm_password" class="form-label">Confirm Password</label>
+                    <input type="password" name="password_confirmation" class="form-control" id="confirm_password" placeholder="Confirm your password" required>
+                </div>
                 <div class="d-grid">
                     <button type="submit" class="btn btn-success">Register</button>
                 </div>
